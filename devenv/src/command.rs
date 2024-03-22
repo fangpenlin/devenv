@@ -237,7 +237,8 @@ impl App {
             Some(caches) => Ok(caches.clone()),
             None => {
                 let no_logging = Options {
-                    logging: false,
+                    // XXX: enable logging for debug
+                    logging: true,
                     ..Default::default()
                 };
                 let store = self.run_nix("nix", &["store", "ping", "--json"], &no_logging)?;
